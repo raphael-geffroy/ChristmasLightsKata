@@ -1,0 +1,24 @@
+{
+  "name": "geffroyr/christmas-lights-kata",
+  "authors": [
+    {
+      "name": "Raphaël Geffroy",
+      "email": "raphidu35@gmail.com"
+    }
+  ],
+  "require": {
+    "ramsey/uuid": "^4.1",
+    "symfony/console": "^5.2",
+    "symfony/dependency-injection": "^5.2",
+    "symfony/config": "^5.2",
+    "symfony/yaml": "^5.2"
+  },
+  "description": "Christmas Lights Kata",
+  "autoload": {
+    "psr-4": {
+      "Infrastructure\\": "src/infrastructure/",
+      "UserInterface\\": "src/user-interface/",
+      "Domain\\": "domain/src/"
+    }
+  }
+}

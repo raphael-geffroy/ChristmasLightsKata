@@ -1,0 +1,21 @@
+services:
+  _defaults:
+    autowire: true
+  _instanceof:
+    Symfony\Component\Console\Command\Command:
+      tags: [ 'command' ]
+  Infrastructure\Application:
+    public: true
+    arguments:
+      - !tagged command
+
+  UserInterface\:
+    resource: '../src/user-interface/*'
+    exclude: '../src/user-interface/{Templates}'
+  Infrastructure\Adapter\:
+    resource: '../src/infrastructure/Adapter/*'
+  Domain\Port\:
+    resource: '../domain/src/Port/*'
+  Domain\Application\:
+    resource: '../domain/src/Application/*'
+    exclude: '../domain/src/Application/{*Request.php,*Response.php}'
