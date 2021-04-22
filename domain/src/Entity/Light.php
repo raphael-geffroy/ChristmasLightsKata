@@ -13,21 +13,20 @@ class Light
         $this->isOn = false;
     }
 
-    /**
-     * @return bool
-     */
+    /** @return bool */
     public function isOn(): bool
     {
         return $this->isOn;
     }
 
-    /**
-     * @param bool $isOn
-     */
-    public function setIsOn(bool $isOn): void
-    {
-        $this->isOn = $isOn;
+    public function turnOn(){
+        $this->isOn = true;
     }
-
+    public function turnOff(){
+        $this->isOn = false;
+    }
+    public function toggle(){
+        $this->isOn = !$this->isOn;
+    }
 
 }

@@ -31,16 +31,6 @@ class LightGrid
         return $this->id;
     }
 
-
-    public function turnOnRange(CoordinatePair $lightRange)
-    {
-        for ($x = $lightRange->getMinX(); $x <= $lightRange->getMaxX(); $x++) {
-            for ($y = $lightRange->getMinY(); $y <= $lightRange->getMaxY(); $y++) {
-                $this->lights[$x][$y]->setIsOn(true);
-            }
-        }
-    }
-
     public function getRange(CoordinatePair $lightRange): array
     {
         /** @var $lights Light[] */
@@ -53,11 +43,20 @@ class LightGrid
         return $lights;
     }
 
+    public function turnOnRange(CoordinatePair $lightRange)
+    {
+        for ($x = $lightRange->getMinX(); $x <= $lightRange->getMaxX(); $x++) {
+            for ($y = $lightRange->getMinY(); $y <= $lightRange->getMaxY(); $y++) {
+                $this->lights[$x][$y]->turnOn();
+            }
+        }
+    }
+
     public function turnOffRange(CoordinatePair $lightRange)
     {
         for ($x = $lightRange->getMinX(); $x <= $lightRange->getMaxX(); $x++) {
             for ($y = $lightRange->getMinY(); $y <= $lightRange->getMaxY(); $y++) {
-                $this->lights[$x][$y]->setIsOn(false);
+                $this->lights[$x][$y]->turnOff();
             }
         }
     }
@@ -66,7 +65,7 @@ class LightGrid
     {
         for ($x = $lightRange->getMinX(); $x <= $lightRange->getMaxX(); $x++) {
             for ($y = $lightRange->getMinY(); $y <= $lightRange->getMaxY(); $y++) {
-                $this->lights[$x][$y]->setIsOn(!$this->lights[$x][$y]->isOn());
+                $this->lights[$x][$y]->toggle();
             }
         }
     }
@@ -76,14 +75,10 @@ class LightGrid
         return $this->maxCoordinate;
     }
 
-    /**
-     * @return Light[][]
-     */
+    /** @return Light[][] */
     public function getLights(): array
     {
         return $this->lights;
     }
-
-
 
 }

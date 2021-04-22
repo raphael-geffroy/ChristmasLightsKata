@@ -3,7 +3,6 @@
 
 namespace Domain\Port;
 
-
 use Domain\Entity\LightGrid;
 use Ramsey\Uuid\UuidInterface;
 
