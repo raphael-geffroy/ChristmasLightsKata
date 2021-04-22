@@ -43,29 +43,29 @@ class LightGrid
         return $lights;
     }
 
-    public function turnOnRange(CoordinatePair $lightRange)
+    public function increaseBrightnessByOneRange(CoordinatePair $lightRange)
     {
         for ($x = $lightRange->getMinX(); $x <= $lightRange->getMaxX(); $x++) {
             for ($y = $lightRange->getMinY(); $y <= $lightRange->getMaxY(); $y++) {
-                $this->lights[$x][$y]->turnOn();
+                $this->lights[$x][$y]->increaseBrightnessByOne();
             }
         }
     }
 
-    public function turnOffRange(CoordinatePair $lightRange)
+    public function decreaseBrightnessByOneMinZeroRange(CoordinatePair $lightRange)
     {
         for ($x = $lightRange->getMinX(); $x <= $lightRange->getMaxX(); $x++) {
             for ($y = $lightRange->getMinY(); $y <= $lightRange->getMaxY(); $y++) {
-                $this->lights[$x][$y]->turnOff();
+                $this->lights[$x][$y]->decreaseBrightnessByOneMinZero();
             }
         }
     }
 
-    public function toggleRange(CoordinatePair $lightRange)
+    public function increaseBrightnessByTwoRange(CoordinatePair $lightRange)
     {
         for ($x = $lightRange->getMinX(); $x <= $lightRange->getMaxX(); $x++) {
             for ($y = $lightRange->getMinY(); $y <= $lightRange->getMaxY(); $y++) {
-                $this->lights[$x][$y]->toggle();
+                $this->lights[$x][$y]->increaseBrightnessByTwo();
             }
         }
     }

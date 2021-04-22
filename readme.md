@@ -31,7 +31,7 @@ You just finish implementing your winning light pattern when you realize you mis
     The phrase toggle actually means that you should increase the brightness of those lights by 2.
 
 What is the total brightness of all lights combined after following Santa’s instructions?
-
+(539560)
 For example:
 
     turn on 0,0 through 0,0 would increase the total brightness by 1.

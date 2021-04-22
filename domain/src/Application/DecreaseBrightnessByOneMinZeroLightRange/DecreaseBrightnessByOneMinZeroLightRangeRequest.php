@@ -1,20 +1,20 @@
 <?php
 
 
-namespace Domain\Application\TurnOffLightRange;
+namespace Domain\Application\DecreaseBrightnessByOneMinZeroLightRange;
 
 
 use Domain\Entity\CoordinatePair;
 use Domain\Entity\LightGrid;
 use Ramsey\Uuid\UuidInterface;
 
-class TurnOffLightRangeRequest
+class DecreaseBrightnessByOneMinZeroLightRangeRequest
 {
     private UuidInterface $lightGridId;
     private CoordinatePair $lightRange;
 
     /**
-     * ToggleLightRangeRequest constructor.
+     * IncreaseBrightnessByTwoLightRangeRequest constructor.
      * @param UuidInterface $lightGridId
      * @param CoordinatePair $lightRange
      */

@@ -1,17 +1,17 @@
 <?php
 
 
-namespace Domain\Application\ToggleLightRange;
+namespace Domain\Application\IncreaseBrightnessByTwoLightRange;
 
 
 use Domain\Port\LightGridProvider;
 
-class ToggleLightRange
+class IncreaseBrightnessByTwoLightRange
 {
     private LightGridProvider $lightGridProvider;
 
     /**
-     * ToggleLightRange constructor.
+     * IncreaseBrightnessByTwoLightRange constructor.
      * @param LightGridProvider $lightGridProvider
      */
     public function __construct(LightGridProvider $lightGridProvider)
@@ -21,11 +21,11 @@ class ToggleLightRange
 
 
     public function execute(
-        ToggleLightRangeRequest $request
+        IncreaseBrightnessByTwoLightRangeRequest $request
     )
     {
         $lightGrid = $this->lightGridProvider->findById($request->getLightGridId());
-        $lightGrid->toggleRange($request->getLightRange());
+        $lightGrid->increaseBrightnessByTwoRange($request->getLightRange());
         $this->lightGridProvider->save($lightGrid);
     }
 }

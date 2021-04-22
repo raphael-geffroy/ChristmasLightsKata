@@ -1,17 +1,17 @@
 <?php
 
 
-namespace Domain\Application\TurnOffLightRange;
+namespace Domain\Application\DecreaseBrightnessByOneMinZeroLightRange;
 
 
 use Domain\Port\LightGridProvider;
 
-class TurnOffLightRange
+class DecreaseBrightnessByOneMinZeroLightRange
 {
     private LightGridProvider $lightGridProvider;
 
     /**
-     * ToggleLightRange constructor.
+     * IncreaseBrightnessByTwoLightRange constructor.
      * @param LightGridProvider $lightGridProvider
      */
     public function __construct(LightGridProvider $lightGridProvider)
@@ -20,10 +20,10 @@ class TurnOffLightRange
     }
 
     public function execute(
-        TurnOffLightRangeRequest $request
+        DecreaseBrightnessByOneMinZeroLightRangeRequest $request
     ){
         $lightGrid = $this->lightGridProvider->findById($request->getLightGridId());
-        $lightGrid->turnOffRange($request->getLightRange());
+        $lightGrid->decreaseBrightnessByOneMinZeroRange($request->getLightRange());
         $this->lightGridProvider->save($lightGrid);
     }
 }

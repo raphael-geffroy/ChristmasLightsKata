@@ -1,8 +1,8 @@
 <?php
 namespace UserInterface\Command;
 
-use Domain\Application\TurnOnLightRange\TurnOnLightRange;
-use Domain\Application\TurnOnLightRange\TurnOnLightRangeRequest;
+use Domain\Application\IncreaseBrightnessByOneLightRange\IncreaseBrightnessByOneLightRange;
+use Domain\Application\IncreaseBrightnessByOneLightRange\IncreaseBrightnessByOneLightRangeRequest;
 use Domain\Entity\Coordinate;
 use Domain\Entity\CoordinatePair;
 use Ramsey\Uuid\Uuid;
@@ -11,14 +11,14 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class TurnOnLightRangeCommand extends Command
+class IncreaseBrightnessByOneLightRangeCommand extends Command
 {
-    protected static string $defaultName = 'app:turnon-light-range';
-    private TurnOnLightRange $turnOnLightRange;
+    protected static string $defaultName = 'app:increase-one-light-range';
+    private IncreaseBrightnessByOneLightRange $increaseBrightnessByOneLightRange;
 
-    public function __construct(TurnOnLightRange $turnOnLightRange)
+    public function __construct(IncreaseBrightnessByOneLightRange $increaseBrightnessByOneLightRange)
     {
-        $this->turnOnLightRange = $turnOnLightRange;
+        $this->increaseBrightnessByOneLightRange = $increaseBrightnessByOneLightRange;
         parent::__construct();
     }
 
@@ -28,11 +28,11 @@ class TurnOnLightRangeCommand extends Command
             new Coordinate($input->getArgument('minX'),$input->getArgument('minY')),
             new Coordinate($input->getArgument('maxX'),$input->getArgument('maxY'))
         );
-        $request = new TurnOnLightRangeRequest(
+        $request = new IncreaseBrightnessByOneLightRangeRequest(
             Uuid::fromString($input->getArgument('id')),
             $lightRange
         );
-        $this->turnOnLightRange->execute($request);
+        $this->increaseBrightnessByOneLightRange->execute($request);
         return Command::SUCCESS;
     }
 

@@ -7,10 +7,12 @@ use phpDocumentor\Reflection\Types\Boolean;
 class Light
 {
     private bool $isOn;
+    private int $brightness;
 
     public function __construct()
     {
         $this->isOn = false;
+        $this->brightness=0;
     }
 
     /** @return bool */
@@ -18,15 +20,18 @@ class Light
     {
         return $this->isOn;
     }
+    public function getBrightness(){
+        return $this->brightness;
+    }
 
-    public function turnOn(){
-        $this->isOn = true;
+    public function increaseBrightnessByOne(){
+        $this->brightness += 1;
     }
-    public function turnOff(){
-        $this->isOn = false;
+    public function decreaseBrightnessByOneMinZero(){
+        $this->brightness = max(0, $this->brightness-1);
     }
-    public function toggle(){
-        $this->isOn = !$this->isOn;
+    public function increaseBrightnessByTwo(){
+        $this->brightness += 2;
     }
 
 }

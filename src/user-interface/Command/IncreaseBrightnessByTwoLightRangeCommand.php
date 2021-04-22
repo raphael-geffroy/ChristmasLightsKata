@@ -6,8 +6,8 @@ use Domain\Application\CreateLightGrid\CreateLightGridRequest;
 use Domain\Application\GetLightGrid\GetLightGrid;
 use Domain\Application\GetLightGrid\GetLightGridPresenterInterface;
 use Domain\Application\GetLightGrid\GetLightGridRequest;
-use Domain\Application\ToggleLightRange\ToggleLightRange;
-use Domain\Application\ToggleLightRange\ToggleLightRangeRequest;
+use Domain\Application\IncreaseBrightnessByTwoLightRange\IncreaseBrightnessByTwoLightRange;
+use Domain\Application\IncreaseBrightnessByTwoLightRange\IncreaseBrightnessByTwoLightRangeRequest;
 use Domain\Entity\Coordinate;
 use Domain\Entity\CoordinatePair;
 use Ramsey\Uuid\Uuid;
@@ -17,14 +17,14 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use UserInterface\Presenter\CreateLightGridPresenter;
 
-class ToggleLightRangeCommand extends Command
+class IncreaseBrightnessByTwoLightRangeCommand extends Command
 {
-    protected static string $defaultName = 'app:toggle-light-range';
-    private ToggleLightRange $toggleLightRange;
+    protected static string $defaultName = 'app:increase-two-light-range';
+    private IncreaseBrightnessByTwoLightRange $increaseBrightnessByTwoLightRange;
 
-    public function __construct(ToggleLightRange $toggleLightRange)
+    public function __construct(IncreaseBrightnessByTwoLightRange $increaseBrightnessByTwoLightRange)
     {
-        $this->toggleLightRange = $toggleLightRange;
+        $this->increaseBrightnessByTwoLightRange = $increaseBrightnessByTwoLightRange;
         parent::__construct();
     }
 
@@ -34,11 +34,11 @@ class ToggleLightRangeCommand extends Command
             new Coordinate($input->getArgument('minX'),$input->getArgument('minY')),
             new Coordinate($input->getArgument('maxX'),$input->getArgument('maxY'))
         );
-        $request = new ToggleLightRangeRequest(
+        $request = new IncreaseBrightnessByTwoLightRangeRequest(
             Uuid::fromString($input->getArgument('id')),
             $lightRange
         );
-        $this->toggleLightRange->execute($request);
+        $this->increaseBrightnessByTwoLightRange->execute($request);
         return Command::SUCCESS;
     }
 

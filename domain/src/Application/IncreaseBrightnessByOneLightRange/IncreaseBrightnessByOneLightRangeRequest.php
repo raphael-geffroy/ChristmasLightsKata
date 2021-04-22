@@ -1,20 +1,20 @@
 <?php
 
 
-namespace Domain\Application\ToggleLightRange;
+namespace Domain\Application\IncreaseBrightnessByOneLightRange;
 
 
-use Domain\Entity\CoordinatePair;
 use Domain\Entity\LightGrid;
+use Domain\Entity\CoordinatePair;
 use Ramsey\Uuid\UuidInterface;
 
-class ToggleLightRangeRequest
+class IncreaseBrightnessByOneLightRangeRequest
 {
     private UuidInterface $lightGridId;
     private CoordinatePair $lightRange;
 
     /**
-     * ToggleLightRangeRequest constructor.
+     * IncreaseBrightnessByTwoLightRangeRequest constructor.
      * @param UuidInterface $lightGridId
      * @param CoordinatePair $lightRange
      */

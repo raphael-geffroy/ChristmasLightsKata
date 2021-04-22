@@ -4,12 +4,12 @@ namespace Domain\Test;
 
 use Domain\Application\CreateLightGrid\CreateLightGrid;
 use Domain\Application\CreateLightGrid\CreateLightGridRequest;
-use Domain\Application\ToggleLightRange\ToggleLightRange;
-use Domain\Application\ToggleLightRange\ToggleLightRangeRequest;
-use Domain\Application\TurnOffLightRange\TurnOffLightRange;
-use Domain\Application\TurnOffLightRange\TurnOffLightRangeRequest;
-use Domain\Application\TurnOnLightRange\TurnOnLightRange;
-use Domain\Application\TurnOnLightRange\TurnOnLightRangeRequest;
+use Domain\Application\IncreaseBrightnessByTwoLightRange\IncreaseBrightnessByTwoLightRange;
+use Domain\Application\IncreaseBrightnessByTwoLightRange\IncreaseBrightnessByTwoLightRangeRequest;
+use Domain\Application\DecreaseBrightnessByOneMinZeroLightRange\DecreaseBrightnessByOneMinZeroLightRange;
+use Domain\Application\DecreaseBrightnessByOneMinZeroLightRange\DecreaseBrightnessByOneMinZeroLightRangeRequest;
+use Domain\Application\IncreaseBrightnessByOneLightRange\IncreaseBrightnessByOneLightRange;
+use Domain\Application\IncreaseBrightnessByOneLightRange\IncreaseBrightnessByOneLightRangeRequest;
 use Domain\Entity\Coordinate;
 use Domain\Entity\LightGrid;
 use Domain\Entity\CoordinatePair;

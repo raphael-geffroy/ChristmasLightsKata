@@ -1,8 +1,8 @@
 <?php
 namespace UserInterface\Command;
 
-use Domain\Application\TurnOffLightRange\TurnOffLightRange;
-use Domain\Application\TurnOffLightRange\TurnOffLightRangeRequest;
+use Domain\Application\DecreaseBrightnessByOneMinZeroLightRange\DecreaseBrightnessByOneMinZeroLightRange;
+use Domain\Application\DecreaseBrightnessByOneMinZeroLightRange\DecreaseBrightnessByOneMinZeroLightRangeRequest;
 use Domain\Entity\Coordinate;
 use Domain\Entity\CoordinatePair;
 use Ramsey\Uuid\Uuid;
@@ -11,14 +11,14 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class TurnOffLightRangeCommand extends Command
+class DecreaseBrightnessByOneMinZeroLightRangeCommand extends Command
 {
-    protected static string $defaultName = 'app:turnoff-light-range';
-    private TurnOffLightRange $turnOffLightRange;
+    protected static string $defaultName = 'app:decrease-one-min-zero-light-range';
+    private DecreaseBrightnessByOneMinZeroLightRange $decreaseBrightnessByOneMinZeroLightRange;
 
-    public function __construct(TurnOffLightRange $turnOffLightRange)
+    public function __construct(DecreaseBrightnessByOneMinZeroLightRange $decreaseBrightnessByOneMinZeroLightRange)
     {
-        $this->turnOffLightRange = $turnOffLightRange;
+        $this->decreaseBrightnessByOneMinZeroLightRange = $decreaseBrightnessByOneMinZeroLightRange;
         parent::__construct();
     }
 
@@ -28,11 +28,11 @@ class TurnOffLightRangeCommand extends Command
             new Coordinate($input->getArgument('minX'),$input->getArgument('minY')),
             new Coordinate($input->getArgument('maxX'),$input->getArgument('maxY'))
         );
-        $request = new TurnOffLightRangeRequest(
+        $request = new DecreaseBrightnessByOneMinZeroLightRangeRequest(
             Uuid::fromString($input->getArgument('id')),
             $lightRange
         );
-        $this->turnOffLightRange->execute($request);
+        $this->decreaseBrightnessByOneMinZeroLightRange->execute($request);
         return Command::SUCCESS;
     }
 
